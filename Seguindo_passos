@@ -1,0 +1,9 @@
+Passo a passo - projeto python
+
+0. Instalar ferramentas do python (venv e pip	)
+	0.1 sudo apt install python3.10-venv
+	0.2 sudo apt install python3-pip
+1. Criar uma pasta para o projeto
+2. Abrir o terminal nessa pasta
+3. Criar um ambiente virtual dentro dessa pasta
+	python3 -m venv venv

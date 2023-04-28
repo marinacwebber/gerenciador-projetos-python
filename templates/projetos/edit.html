@@ -1,0 +1,52 @@
+{% extends "template.html" %}
+{% block conteudo %}
+<h1 class="my-4">{{titulo}}</h1>
+
+<form action="/projetos/atualizar" method="post">
+
+    <input type="hidden" name="id" value="{{projeto.id}}">
+    <input type="hidden" name="criadoEm" value="{{projeto.criadoEm}}">
+
+    <div class="row">
+        <div class="mb-3">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="nome" name="nome" value="{{projeto.nome}}">
+        </div>
+    
+        <div class="mb-3">
+            <label for="descricao" class="form-label">Descricao</label>
+            <textarea class="form-control" id="descricao" name="descricao">{{projeto.descricao}}</textarea>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Tarefa</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Prazo</th>
+            <th scope="col">Concluído?</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for tarefa in tarefas %}
+        <tr>
+            <td>{{ tarefa.id }}</td>
+            <td>{{ tarefa.nome }}</td>
+            <td>{{ tarefa.descricao }}</td>
+            <td>{{ tarefa.prazo }}</td>
+            <td>{{ tarefa.concluido }}</td>
+        </tr>
+        {% endfor %}
+
+
+    </tbody>
+</table>
+
+{% endblock %}

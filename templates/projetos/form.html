@@ -1,0 +1,18 @@
+{% extends "template.html" %}
+{% block conteudo %}
+<h1 class="my-4">{{titulo}}</h1>
+
+<form action="/projetos/criar" method="post">
+    <div class="mb-3">
+        <label for="nome" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="nome" name="nome">
+    </div>
+
+    <div class="mb-3">
+        <label for="descricao" class="form-label">Descricao</label>
+        <textarea class="form-control" id="descricao" name="descricao"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
+
+{% endblock %}

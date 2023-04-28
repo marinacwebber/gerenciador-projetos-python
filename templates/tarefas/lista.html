@@ -1,0 +1,39 @@
+{% extends "template.html" %}
+{% block conteudo %}
+<div class="d-flex flex-row justify-content-between align-items-center">
+    <h1 class="my-4">Minhas Tarefas</h1>
+    <a href="/tarefas/novo" class="btn btn-success">Nova tarefa</a>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Projeto</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Prazo</th>
+            <th scope="col">Concluído?</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for tarefa in lista %}
+        <tr>
+            <td>{{ tarefa.id }}</td>
+            <td>{{ tarefa.projeto.nome }}</td>
+            <td>{{ tarefa.nome }}</td>
+            <td>{{ tarefa.descricao }}</td>
+            <td>{{ tarefa.prazo }}</td>
+            <td>{{ tarefa.concluido }}</td>
+            <td>
+                <a href="/tarefas/{{tarefa.id}}/editar" class="btn btn-primary btn-sm">Editar</a>
+                <a href="/tarefas/{{tarefa.id}}/excluir" class="btn btn-danger btn-sm">Excluir</a>
+            </td>
+        </tr>
+        {% endfor %}
+
+
+    </tbody>
+</table>
+{% endblock %}
